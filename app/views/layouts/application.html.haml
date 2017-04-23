@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
+    %title とはペディア
+    = csrf_meta_tags
+    = stylesheet_link_tag    "application", media: "all", data:{turbolinks:{track: true}}
+    = javascript_include_tag "application", data:{turbolinks:{track: true}}
+  %body
+    %nav.navbar.bootsnav.navbar-fixed-top
+      .top-search
+        .container-fluid
+          .input-group
+            %span.input-group-addon
+              %i.fa.fa-search
+            %input.form-control{type: 'text', palaceholder: "検索"}
+              %em とは
+            %span.input-group-addon.close-search
+              %i.fa.fa-times
+      .container-fluid
+        .attr-nav
+          %ul
+            %li.search
+              %a{href: "#"}
+                %i.fa.fa-search
+        .navbar-header
+          %button.navbar-toggle{type: 'button', data:{ target: "#navbar-main"}, data:{toggle: "collapse"}, href: "#navbar-main"}
+            %i.fa.fa-bars
+          = link_to 'とはペディア', root_path, class: 'navbar-brand'
+        .navbar-collapse.collapse#navbar-main
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to 'ログイン', new_user_session_path
+              %li
+                = link_to '新規登録', new_user_registration_path
+    .container
+      - flash.each do |key, value|
+        - key = "info" if key == "notice"
+        - key = "danger" if key == "alert"
+        = content_tag :div, value, class: "alert alert-#{key}"
+      = yield

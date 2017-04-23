@@ -1,0 +1,20 @@
+@import "./config/variable";
+@import "./mixin/mixins";
+@import "reset";
+@import "fonts";
+@import "bootsnav";
+
+@import "devise";
+@import "navbar";
+@import "towa_form";
+@import "user_info";
+@import "meaning_box";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.container {
+  margin-top: 60px;
+}

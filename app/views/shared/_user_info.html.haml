@@ -1,0 +1,9 @@
+.user-info
+  .noaccount_image
+    = image_tag "useraccount.png"
+  %p.user-name
+    = current_user.name
+  %p.user-title
+    = current_user.title
+  %p
+    = current_user.profile

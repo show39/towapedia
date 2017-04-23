@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      towa:
+        towa: 『とは』
+      meanings:
+        meaning: 意味

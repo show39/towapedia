@@ -1,0 +1,23 @@
+.navbar {
+  background-color: $acacia;
+  .navbar-brand {
+    font-family : 'nicoca';
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 2px 2px 1px #000,
+    -2px 2px 1px #000,
+    2px -2px 1px #000,
+    -2px -2px 1px #000;
+    letter-spacing: 3px;
+  }
+  .navbar-brand {
+  margin-left: 18px;
+  }
+  .navbar-toggle {
+    background-color: #fff;
+    border: 1px solid $darkgray;
+    .icon-bar {
+      background-color: $darkgray;
+    }
+  }
+}
