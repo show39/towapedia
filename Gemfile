@@ -51,6 +51,11 @@ gem 'rails-i18n'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
