@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: towapedia_production
-  username: towapedia
-  password: <%= ENV['TOWAPEDIA_DATABASE_PASSWORD'] %>
+  username: towa
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
