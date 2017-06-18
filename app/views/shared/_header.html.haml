@@ -1,0 +1,27 @@
+%nav.navbar.navbar-fixed-top{role: "navigation"}
+  .container-fluid
+    .navbar-header
+      %button{type: 'button', class: "navbar-toggle", data:{toggle: "collapse"}, href: "#navbar-main"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'とはペディア', root_path, class: 'navbar-brand'
+    .navbar-collapse.collapse#navbar-main
+      %form.navbar-form{role: "search"}
+        .input-group.col-sm-6
+          %input{type: "text", class: "form-control search_form" , placeholder: "例）とはペディア", name: "q"}
+          %span.search_towa とは
+          .input-group-btn
+            %button{class: "btn btn-default", type: "submit"} 検索
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to 'マイペディア', "#", class: "nav-mypedia-btn"
+          %li
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-logout-btn"
+        - else
+          %li
+            = link_to '無料登録', new_user_registration_path, class: "nav-registration-btn"
+          %li
+            = link_to 'ログイン', new_user_session_path, class: "nav-login-btn"

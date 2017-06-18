@@ -1,25 +1,27 @@
 .row
-  .col-sm-4.left-content
+  .col-md-3.left-content
     - if user_signed_in?
       = render 'shared/user_info'
       = render 'shared/towa_form'
     - else
       .user-info
-        .noaccount_image
-          = image_tag "noaccount.png"
+        .account_image-box
+          = image_tag "noaccount.png", class: "account_image"
         %p.noaccount_name No Acount
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
-  .col-sm-8
+  .col-md-9
     %ul
-      - @meanings.each do |meaning|
-        %li.meaning__box.clearfix
-          %h2
-            = meaning.towa.towa
-            %em とは
-          = simple_format(meaning.meaning, class: "meaning__box-meaning")
-          .meaning__box-user-shumbnail
-            = image_tag "userthumbnail.png", size: "32x32"
-          %p.meaning__box-user-name
-            = meaning.user.name
-          %p.meaning__box-user-title
-            = meaning.user.title
+      .row.o-3column
+        - @meanings.each do |meaning|
+          .col-md-4.col-sm-6
+            %li.meaning__box.clearfix
+              %h2
+                = meaning.towa.towa
+                %em とは
+              = simple_format(meaning.meaning, class: "meaning__box-meaning")
+              .meaning__box-user-shumbnail
+                = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+              %p.meaning__box-user-name
+                = meaning.user.name
+              %p.meaning__box-user-title
+                = meaning.user.title

@@ -4,20 +4,29 @@
     font-size: 18px;
     color: #000;
     text-align: center;
-    padding-top: 6px;
+    margin: 10px 0 0 0;
   }
   .user-title {
-    color: $darkgray;
+    color: $dark_gray;
     text-align: center;
+    margin: 6px 0 10px 0;
   }
 
-  .noaccount_image {
+  .account_image-box {
     text-align: center;
+    .account_image {
+      border: 1px solid $light_gray;
+      border-radius: 100px;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
   }
   .noaccount_name {
     font-size: 18px;
-    color: $lightgray;
+    color: $light_gray;
     text-align: center;
+    padding: 5px 0 3px 0;
   }
   .new-registration_btn {
     font-size: 16px;

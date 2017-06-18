@@ -1,26 +1,37 @@
+.o-3column .col-md-4 {
+  padding: 0 4px;
+}
+
 .meaning__box {
-  border: solid 1px $darkgray;
+  border: solid 1px $dark_gray;
   border-radius: 6px;
   margin: 0 0 6px 0;
   h2{
-    font-size: 24px;
+    font-size: 20px;
     margin: 12px;
   }
   &-meaning {
-    font-size: 18px;
+    font-size: 16px;
     margin: 12px;
   }
   &-user-shumbnail {
     margin-left: 18px;
     float: left;
+    .meaning__box-user-image {
+      border: 1px solid $light_gray;
+      border-radius: 3px;
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+    }
   }
   &-user-name {
-    font-size: 14px;
+    font-size: 12px;
     margin: 3px 0 0 66px;
   }
   &-user-title {
-    font-size: 12px;
-    color: $darkgray;
+    font-size: 10px;
+    color: $dark_gray;
     margin: 0 0 6px 66px;
   }
 }
