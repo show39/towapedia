@@ -1,0 +1,67 @@
+// サインイン画面, ログイン画面
+.signup__wrapper {
+  max-width: 360px;
+  margin: 0 auto;
+  h3 {
+    color: $font_black;
+    margin-bottom: 20px;
+  }
+  .signup__form {
+  border: 1px solid $light_gray;
+  padding: 25px 20px;
+  border-radius: 5px;
+  #error_explanation {
+    h2 {
+      font-size: 16px;
+      font: $font_black;
+    }
+    ul {
+      font: $font_black;
+    }
+  }
+  .form-group {
+    @include clearfix;
+    margin-bottom: 15px;
+    .field {
+      .form-control {
+        height: 36px;
+      }
+      .signup__form--textarea {
+        height: 88px;
+        resize: none;
+      }
+    }
+    .signup__form--memory {
+      color: $font_black;
+      margin-top: 10px;
+    }
+    .text-right {
+      margin: 0 0 -15px 0;
+      @include clearfix;
+      .actions {
+        float: right;
+        .btn-primary {
+        height: 36px;
+        color: $blue;
+        font-size: 16px;
+        background-color: white;
+        border: 1px solid $blue;
+        }
+        .btn-primary:hover {
+          color: white;
+          background-color: $blue;
+        }
+      }
+      .signup__form--cancel {
+        float: left;
+        line-height: 36px;
+        margin-left: 20px;
+      }
+    }
+  }
+  .signup__tos {
+    font-size: 12px;
+    color: $font_black;
+  }
+  }
+}
