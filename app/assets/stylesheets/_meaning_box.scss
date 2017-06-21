@@ -1,3 +1,4 @@
+// ホーム、マイペディア、とは詳細ページの意味ボックス
 .o-3column .col-md-4 {
   padding: 0 4px;
 }
@@ -33,5 +34,31 @@
     font-size: 10px;
     color: $dark_gray;
     margin: 0 0 6px 66px;
+  }
+}
+
+// とは詳細ページ
+.towa__detail {
+  .towa__detail--header {
+    border-left: 4px solid $acacia;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    h2 {
+      font: $font_black;
+      font-size: 24px;
+      margin: 5px 0;
+    }
+  }
+  .towa__detail--meanings {
+    .towa__detail--meanings-box {
+      border: solid 1px $dark_gray;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      .towa__detail--meaning {
+        font-size: 16px;
+        margin: 12px;
+      }
+    }
   }
 }

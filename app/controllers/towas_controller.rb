@@ -12,6 +12,13 @@ class TowasController < ApplicationController
     end
   end
 
+  def show
+    @towatop = Towa.find(params[:id])
+    @user = current_user
+    @towa = Towa.new
+    @towa.meanings.build(user_id: current_user.id)
+  end
+
   private
     def towa_params
       params.require(:towa).permit(:towa, meanings_attributes: [:meaning, :user_id])
