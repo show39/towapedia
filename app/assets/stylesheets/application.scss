@@ -1,13 +1,14 @@
 @import "./config/variable";
+@import "./config/reset";
+@import "./config/fonts";
 @import "./mixin/mixins";
-@import "reset";
-@import "fonts";
 
 @import "devise";
 @import "navbar";
 @import "towa_form";
 @import "user_info";
 @import "meaning_box";
+@import "mypedia";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
