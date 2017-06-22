@@ -11,6 +11,9 @@ gem 'puma', '~> 3.0'
 gem 'turbolinks', '~> 5'
 gem 'therubyracer', platforms: :ruby
 
+# fontsのdigestなしの書き出し
+gem 'non-stupid-digest-assets'
+
 # UI/UX
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
