@@ -1,47 +1,55 @@
 .navbar {
+  margin-bottom: 0;
+  padding-bottom: 10px;
   .container-fluid {
-    border-top: 4px solid $acacia;
+    border-top: 3px solid $acacia;
     border-bottom: 1px solid $light_gray;
-    padding-top: 1px;
+    height: 49px;
     background-color: white;
     .navbar-header {
+      height: 44px;
       .navbar-toggle {
-        height: 37px;
         border: 1px solid $dark_gray;
+        margin: 5px 20px 0 0;
         .icon-bar {
           background-color: $dark_gray;
-          width: 26px;
+          width: 22px;
         }
       }
       .navbar-brand {
         font-family : 'nicoca';
-        font-size: 28px;
+        font-size: 24px;
         color: white;
         text-shadow: 2px 2px 1px $font_black,
         -2px 2px 1px #000,
         2px -2px 1px #000,
         -2px -2px 1px #000;
-        letter-spacing: 3px;
-        margin-left: 18px;
-        padding-right: 50px;
+        letter-spacing: 4px;
+        margin: 0 40px 0 30px;
+        padding-top: 11px;
+        height: 43px;
       }
     }
     .navbar-collapse {
+      height: 159px;
+      background-color: white;
+      border-bottom: 1px solid $light-gray;
       .navbar-form {
         display: inline-block;
+        margin-top: 7px;
         .input-group {
           display: inline-flex;
           width: 330px;
           .search_form {
             border-radius: 3px;
-            font-size: 16px;
+            height: 30px;
           }
           .search_towa {
             display: inline-block;
             width: 60px;
             margin: 0 0 0 8px;
             font-size: 16px;
-            line-height: 34px;
+            line-height: 30px;
             color: $font_black;
           }
           .input-group-btn {
@@ -50,7 +58,6 @@
               background-color: $acacia;
               border: 1px solid $light_gray;
               color: white;
-              font-size: 16px;
               padding: 4px 16px;;
             }
             .btn-default:hover {
@@ -62,40 +69,49 @@
       .navbar-nav {
         margin: 0;
         .nav-logout-btn {
-          font-size: 16px;
           color: $font-black;
+          line-height: 45px;
+          padding: 0 15px;
         }
         .nav-logout-btn:hover {
           background-color: white;
           color: $dark_gray;
-          border-bottom: 4px solid $acacia;
+          height: 45px;
+          border-bottom: 3px solid $acacia;
         }
         .nav-mypedia-btn {
-          font-size: 16px;
           color: $font-black;
+          line-height: 45px;
+          padding: 0 15px;
         }
         .nav-mypedia-btn:hover {
           background-color: white;
           color: $dark_gray;
-          border-bottom: 4px solid $acacia;
+          height: 45px;
+          border-bottom: 3px solid $acacia;
         }
         .nav-registration-btn {
-          font-size: 16px;
           color: $font-black;
+          line-height: 45px;
+          padding: 0 15px;
         }
         .nav-registration-btn:hover {
           background-color: white;
           color: $dark_gray;
-          border-bottom: 4px solid $acacia;
+          height: 45px;
+          border-bottom: 3px solid $acacia;
         }
         .nav-login-btn {
-          font-size: 16px;
           color: $font-black;
+          line-height: 45px;
+          padding: 0 15px;
+          margin-right: 40px;
         }
         .nav-login-btn:hover {
           color: $dark_gray;
+          height: 45px;
           background-color: white;
-          border-bottom: 4px solid $acacia;
+          border-bottom: 3px solid $acacia;
         }
       }
     }
