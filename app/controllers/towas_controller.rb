@@ -14,6 +14,7 @@ class TowasController < ApplicationController
   end
 
   def show
+    # binding.pry
     @towatop = Towa.find(params[:id])
     if user_signed_in?
       @user = current_user

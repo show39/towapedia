@@ -16,7 +16,7 @@
           .col-md-4.col-sm-6
             %li.meaning__box.clearfix
               %h2
-                = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", method: :get
+                = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}"
               = simple_format(meaning.meaning, class: "meaning__box-meaning")
               .meaning__box-user-shumbnail
                 = image_tag "userthumbnail.png", class: "meaning__box-user-image"

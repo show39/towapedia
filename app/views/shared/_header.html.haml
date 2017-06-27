@@ -8,12 +8,6 @@
         %span.icon-bar
       = link_to 'とはペディア', root_path, class: 'navbar-brand'
     .navbar-collapse.collapse#navbar-main
-      %form.navbar-form{role: "search"}
-        .input-group.col-sm-6
-          %input{type: "text", class: "form-control search_form" , placeholder: "例）とはペディア", name: "q"}
-          %span.search_towa とは
-          .input-group-btn
-            %button{class: "btn btn-default", type: "submit"} 検索
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li
@@ -25,3 +19,10 @@
             = link_to '無料登録', new_user_registration_path, class: "nav-registration-btn"
           %li
             = link_to 'ログイン', new_user_session_path, class: "nav-login-btn"
+
+      %form.navbar-form{role: "search"}
+        .input-group.col-sm-6
+          %input{type: "text", id: "inc_search", class: "form-control search_form" , placeholder: "調べたい言葉を入力   例）とはペディア", name: "keyword"}
+          %span.search_towa とは
+    .container
+      #towa_list
