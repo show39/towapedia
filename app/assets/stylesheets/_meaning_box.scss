@@ -7,6 +7,7 @@
   border: solid 1px $dark_gray;
   border-radius: 6px;
   margin: 0 0 6px 0;
+  padding-bottom: 5px;
   h2{
     font-size: 18px;
     margin: 10px 12px 3px 12px;
@@ -24,7 +25,9 @@
     .meaning__box-meaning {
       margin: 0 12px 12px 12px;
       color: $font_black;
-      height: 46px;
+      height: 44px;
+      font-size: 12px;
+      padding: 5px 0;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
@@ -32,6 +35,7 @@
   }
   &-user {
     height: 36px;
+    padding-top: 3px;
     &-shumbnail {
       margin-left: 18px;
       float: left;
