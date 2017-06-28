@@ -2,7 +2,7 @@
   margin-bottom: 18px;
   .user-name {
     font-size: 18px;
-    color: #000;
+    color: $font_black;
     text-align: center;
     margin: 10px 0 0 0;
   }
@@ -11,7 +11,10 @@
     text-align: center;
     margin: 6px 0 10px 0;
   }
-
+  .user-profile {
+    color: $font_black;
+    text-align: center;
+  }
   .account_image-box {
     text-align: center;
     .account_image {

@@ -8,57 +8,50 @@
   border-radius: 6px;
   margin: 0 0 6px 0;
   h2{
-    font-size: 20px;
-    margin: 12px;
-  }
-  &-meaning {
-    font-size: 16px;
-    margin: 12px;
-  }
-  &-user-shumbnail {
-    margin-left: 18px;
-    float: left;
-    .meaning__box-user-image {
-      border: 1px solid $light_gray;
-      border-radius: 3px;
-      width: 32px;
-      height: 32px;
-      object-fit: cover;
+    font-size: 18px;
+    margin: 10px 12px 3px 12px;
+    .meaning__box-towa {
+      text-decoration: none;
+      color: $blue;
+    }
+    .meaning__box-towa:hover {
+      color: $blue_hover;
     }
   }
-  &-user-name {
-    font-size: 12px;
-    margin: 3px 0 0 66px;
-  }
-  &-user-title {
-    font-size: 10px;
-    color: $dark_gray;
-    margin: 0 0 6px 66px;
-  }
-}
-
-// とは詳細ページ
-.towa__detail {
-  .towa__detail--header {
-    border-left: 4px solid $acacia;
-    padding: 10px 20px;
-    background-color: #f9f9f9;
-    margin-bottom: 15px;
-    h2 {
-      font: $font_black;
-      font-size: 24px;
-      margin: 5px 0;
+  &-meaning-box {
+    overflow: hidden;
+    width: 100%;
+    .meaning__box-meaning {
+      margin: 0 12px 12px 12px;
+      color: $font_black;
+      height: 46px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
   }
-  .towa__detail--meanings {
-    .towa__detail--meanings-box {
-      border: solid 1px $dark_gray;
-      border-radius: 3px;
-      margin-bottom: 6px;
-      .towa__detail--meaning {
-        font-size: 16px;
-        margin: 12px;
+  &-user {
+    height: 36px;
+    &-shumbnail {
+      margin-left: 18px;
+      float: left;
+      .meaning__box-user-image {
+        border: 1px solid $light_gray;
+        border-radius: 2px;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
       }
+    }
+    &-name {
+      color: $font_black;
+      font-size: 10px;
+      margin: 0 0 0 60px;
+    }
+    &-title {
+      font-size: 8px;
+      color: $dark_gray;
+      margin: 0 0 0 60px;
     }
   }
 }

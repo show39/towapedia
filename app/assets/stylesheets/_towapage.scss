@@ -1,0 +1,25 @@
+// とは詳細ページ
+.towa__detail {
+  .towa__detail--header {
+    border-left: 4px solid $acacia;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    h2 {
+      color: $font_black;
+      font-size: 20px;
+      margin: 5px 0;
+    }
+  }
+  .towa__detail--meanings {
+    .towa__detail--meanings-box {
+      border: solid 1px $dark_gray;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      .towa__detail--meaning {
+        color: $font_black;
+        margin: 12px;
+      }
+    }
+  }
+}

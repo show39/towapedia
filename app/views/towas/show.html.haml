@@ -17,12 +17,13 @@
         .towa__detail--meanings-box
           %p
             = simple_format(meaning.meaning, class: "towa__detail--meaning")
-          .meaning__box-user-shumbnail
-            = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-          %p.meaning__box-user-name
-            = meaning.user.name
-          %p.meaning__box-user-title
-            = meaning.user.title
+          .meaning__box-user
+            .meaning__box-user-shumbnail
+              = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+            %p.meaning__box-user-name
+              = meaning.user.name
+            %p.meaning__box-user-title
+              = meaning.user.title
     - if current_user
       .towa__detail--form
         = form_for [@towatop, @meaning] do |f|
