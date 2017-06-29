@@ -1,10 +1,11 @@
+- provide(:title, "#{@user.name}さんのマイペディア | とはペディア")
 .row
   .col-md-3.left-content
     = render 'shared/user_info'
     = render 'shared/towa_form'
   .col-md-9
     .mypedia__username
-      %h2 #{@user.name}さんのマイペディア一覧
+      %h1 #{@user.name}さんのマイペディア
     %ul
       .row.o-3column
         - @meanings.each do |meaning|

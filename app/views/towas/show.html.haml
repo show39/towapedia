@@ -1,8 +1,8 @@
+- provide(:title, "#{@towatop.towa}とは何か？ | とはペディア")
 .row
   .col-md-3.left-content
     - if user_signed_in?
       = render 'shared/user_info'
-      / = render 'shared/towa_form'
     - else
       .user-info
         .account_image-box
@@ -11,7 +11,7 @@
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
   .col-md-9.towa__detail
     .towa__detail--header
-      %h2 #{@towatop.towa}とは
+      %h1 #{@towatop.towa}とは
     .towa__detail--meanings
       - @towatop.meanings.includes(:user).each do |meaning|
         .towa__detail--meanings-box
