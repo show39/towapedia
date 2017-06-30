@@ -36,6 +36,9 @@ gem 'devise-i18n'
 # 日本語化
 gem 'rails-i18n'
 
+# テキストのURLをリンクにする
+gem 'rails_autolink'
+
 # 役割定義
 # gem 'cancancan'
 

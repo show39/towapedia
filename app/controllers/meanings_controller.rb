@@ -14,6 +14,6 @@ class MeaningsController < ApplicationController
 
   private
     def  meaning_params
-      params.require(:meaning).permit(:meaning).merge(towa_id: params[:towa_id], user_id: current_user.id)
+      params.require(:meaning).permit(:meaning, :referer).merge(towa_id: params[:towa_id], user_id: current_user.id)
     end
 end

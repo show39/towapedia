@@ -23,6 +23,6 @@ class TowasController < ApplicationController
 
   private
     def towa_params
-      params.require(:towa).permit(:towa, meanings_attributes: [:meaning, :user_id])
+      params.require(:towa).permit(:towa, meanings_attributes: [:meaning, :referer, :user_id])
     end
 end

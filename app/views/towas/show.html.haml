@@ -15,8 +15,11 @@
     .towa__detail--meanings
       - @towatop.meanings.includes(:user).each do |meaning|
         .towa__detail--meanings-box
-          %p
-            = simple_format(meaning.meaning, class: "towa__detail--meaning")
+          %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
+          - if meaning.referer.present?
+            %span.towa__detail--referer-box
+              %span.towa__detail--referer-label 参照元
+              %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
           .meaning__box-user
             .meaning__box-user-shumbnail
               = image_tag "userthumbnail.png", class: "meaning__box-user-image"
@@ -27,5 +30,6 @@
     - if current_user
       .towa__detail--form
         = form_for [@towatop, @meaning] do |f|
-          = f.text_area :meaning, placeholder: "『#{@towatop.towa}とは』に投稿する（108文字制限）", class: 'form-meaning'
+          = f.text_area :meaning, placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
+          = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'

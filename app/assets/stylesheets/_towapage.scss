@@ -18,8 +18,33 @@
       margin-bottom: 6px;
       .towa__detail--meaning {
         color: $font_black;
-        margin: 12px;
+        margin: 12px 12px 0 12px;
+        font-size: 16px;
+      }
+      .towa__detail--referer-box {
+        display: inline-block;
+        margin: 0 12px 6px 12px;
+        .towa__detail--referer-label {
+          color: $font_black;
+          margin-right: 5px;
+          font-size: 12px;
+        }
+        .towa__detail--referer {
+          a {
+            color: $blue;
+            text-decoration: none;
+          }
+          a:hover {
+            color: $blue_hover;
+          }
+        }
       }
     }
+  }
+  .towa__detail--form {
+    padding: 15px 10px 1px 10px;
+    border: 1px solid $light_gray;
+    border-radius: 3px;
+    background-color: #f9f9f9;
   }
 }
