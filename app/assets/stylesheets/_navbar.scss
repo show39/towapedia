@@ -17,17 +17,9 @@
         }
       }
       .navbar-brand {
-        font-family : 'nicoca';
-        font-size: 24px;
-        color: white;
-        text-shadow: 2px 2px 1px $font_black,
-        -2px 2px 1px #000,
-        2px -2px 1px #000,
-        -2px -2px 1px #000;
-        letter-spacing: 4px;
-        margin: 0 30px;
-        padding-top: 11px;
-        height: 43px;
+        margin: 0 30px 0 20px;
+        padding-top: 8px;
+        height: 40px;
       }
     }
     .navbar-collapse {
