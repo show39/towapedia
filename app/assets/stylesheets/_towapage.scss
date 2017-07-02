@@ -9,6 +9,13 @@
       color: $font_black;
       font-size: 20px;
       margin: 5px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px dotted $dark_gray;
+    }
+    p {
+      color: $font_black;
+      font-size: 12px;
+      margin: 10px 0 0 0;
     }
   }
   .towa__detail--meanings {
@@ -23,7 +30,7 @@
       }
       .towa__detail--referer-box {
         display: inline-block;
-        margin: 0 12px 6px 12px;
+        margin: 0 12px 3px 12px;
         .towa__detail--referer-label {
           color: $font_black;
           margin-right: 5px;
@@ -38,6 +45,9 @@
             color: $blue_hover;
           }
         }
+      }
+      #lights {
+        text-align: center;
       }
     }
   }

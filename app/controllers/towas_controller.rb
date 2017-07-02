@@ -15,6 +15,7 @@ class TowasController < ApplicationController
 
   def show
     @towatop = Towa.find(params[:id])
+    @light = Light.new
     if user_signed_in?
       @user = current_user
       @meaning = Meaning.new

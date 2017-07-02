@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, length: {minimum: 6}
   has_many :meanings
+  has_many :lights
 end

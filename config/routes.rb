@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'towas/search' => 'search#search'
   resources :users, only: [:show]
   resources :towas, only: [:create, :show] do
-    resources :meanings, only: [:create]
+    resources :meanings, only: [:create] do
+      resources :lights, only: [:create]
+    end
   end
   root 'static_pages#home'
 end

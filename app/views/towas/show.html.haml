@@ -13,6 +13,7 @@
   .col-md-9.towa__detail
     .towa__detail--header
       %h1 #{@towatop.towa}とは
+      %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
     .towa__detail--meanings
       - @towatop.meanings.includes(:user).each do |meaning|
         .towa__detail--meanings-box
@@ -21,6 +22,8 @@
             %span.towa__detail--referer-box
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
+          #lights
+          = form_tag("/towas/#{@towatop.id}/meaning.id/lights", method: :post, id: "lights_score")
           .meaning__box-user
             .meaning__box-user-shumbnail
               = image_tag "userthumbnail.png", class: "meaning__box-user-image"
@@ -34,3 +37,11 @@
           = f.text_area :meaning, placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
           = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'
+
+:javascript
+  $("#lights").raty({
+    starOff: '/assets/light-off.jpg',
+    starOn : '/assets/light-on.jpg',
+    number: 3,
+    hints: ['ふ〜ん', 'ふむふむ', 'なるほど！！']
+  });
