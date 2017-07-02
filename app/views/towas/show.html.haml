@@ -23,9 +23,9 @@
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
           #lights
-            = image_tag "light-on.jpg"
-            = image_tag "light-on.jpg"
-            = image_tag "light-off.jpg"
+            = image_tag "light-on.jpg", size: "32x34"
+            = image_tag "light-on.jpg", size: "32x34"
+            = image_tag "light-off.jpg", size: "32x34"
           = form_tag("/towas/#{@towatop.id}/meaning.id/lights", method: :post, id: "lights_score")
           .meaning__box-footer
             .meaning__box-user
