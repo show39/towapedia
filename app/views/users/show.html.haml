@@ -16,9 +16,14 @@
                 = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
               .meaning__box-meaning-box
                 = simple_format(meaning.meaning, class: "meaning__box-meaning")
-              .meaning__box-user-shumbnail
-                = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-              %p.meaning__box-user-name
-                = meaning.user.name
-              %p.meaning__box-user-title
-                = meaning.user.title
+              .meaning__box-footer
+                .meaning__box-user
+                  .meaning__box-user-shumbnail
+                    = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+                  %p.meaning__box-user-name
+                    = meaning.user.name
+                  %p.meaning__box-user-title
+                    = meaning.user.title
+                .lights-count__box
+                  = image_tag "light-on.jpg", class: "lights-count__box--label", size: "23x25"
+                  %span.lights-count__box--count 88

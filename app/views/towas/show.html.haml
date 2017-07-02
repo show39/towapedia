@@ -23,25 +23,24 @@
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
           #lights
+            = image_tag "light-on.jpg"
+            = image_tag "light-on.jpg"
+            = image_tag "light-off.jpg"
           = form_tag("/towas/#{@towatop.id}/meaning.id/lights", method: :post, id: "lights_score")
-          .meaning__box-user
-            .meaning__box-user-shumbnail
-              = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-            %p.meaning__box-user-name
-              = meaning.user.name
-            %p.meaning__box-user-title
-              = meaning.user.title
+          .meaning__box-footer
+            .meaning__box-user
+              .meaning__box-user-shumbnail
+                = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+              %p.meaning__box-user-name
+                = meaning.user.name
+              %p.meaning__box-user-title
+                = meaning.user.title
+            .lights-count__box
+              = image_tag "light-on.jpg", class: "lights-count__box--label", size: "23x25"
+              %span.lights-count__box--count 88
     - if current_user
       .towa__detail--form
         = form_for [@towatop, @meaning] do |f|
           = f.text_area :meaning, placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
           = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'
-
-:javascript
-  $("#lights").raty({
-    starOff: '/assets/light-off.jpg',
-    starOn : '/assets/light-on.jpg',
-    number: 3,
-    hints: ['ふ〜ん', 'ふむふむ', 'なるほど！！']
-  });

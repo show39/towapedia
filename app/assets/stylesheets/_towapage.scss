@@ -49,6 +49,25 @@
       #lights {
         text-align: center;
       }
+      .meaning__box-footer {
+        display: inline-block;
+        @includes clearfix();
+        width: 100%;
+        .lights-count__box {
+          border: 1px solid $dark_gray;
+          border-radius: 3px;
+          display: inline-box;
+          float: right;
+          margin-right: 20px;
+          padding: 3px 10px;
+          .lights-count__box--label {
+            margin-right: 10px;
+          }
+          .lights-count__box--count {
+            color: $font_black;
+          }
+        }
+      }
     }
   }
   .towa__detail--form {
