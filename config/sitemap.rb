@@ -8,10 +8,9 @@ SitemapGenerator::Sitemap.create do
   #
   # Add '/articles'
   add '/'
-  add towa_path, :priority => 0.7, :changefreq => 'daily'
 
   # Add all articles:
   Towa.find_each do |towa|
-    add towa_path(towa), :lastmod => towa.updated_at
+    add towa_path(towa), :lastmod => towa.updated_at, :priority => 0.7, :changefreq => 'daily'
   end
 end
