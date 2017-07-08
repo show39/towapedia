@@ -39,6 +39,12 @@ gem 'rails-i18n'
 # テキストのURLをリンクにする
 gem 'rails_autolink'
 
+# サイトマップ
+gem 'sitemap_generator'
+
+# crontab管理
+gem 'whenever', require: false
+
 # 役割定義
 # gem 'cancancan'
 
