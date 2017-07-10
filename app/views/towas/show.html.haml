@@ -23,9 +23,10 @@
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
           #lights
-            = image_tag "light-on.jpg", size: "35x35"
-            = image_tag "light-on.jpg", size: "35x35"
-            = image_tag "light-off.jpg", size: "35x35"
+            = image_tag "light-off.jpg", size: "35x35", class: "light-group1", id: "1"
+            = image_tag "light-off.jpg", size: "35x35", class: "light-group2", id: "2"
+            = image_tag "light-off.jpg", size: "35x35", class: "light-group3", id: "3"
+            %input{name: "selected-light", type: "hidden"}
           .meaning__box-footer
             .meaning__box-user
               .meaning__box-user-shumbnail
