@@ -48,6 +48,14 @@
       }
       #lights {
         text-align: center;
+        form {
+          display: inline-block;
+          button {
+            background: none;
+            border: none;
+            padding: 0 2px;
+          }
+        }
       }
       .meaning__box-footer {
         display: inline-block;

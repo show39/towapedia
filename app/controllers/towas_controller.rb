@@ -15,7 +15,9 @@ class TowasController < ApplicationController
 
   def show
     @towatop = Towa.find(params[:id])
-    # @light = Light.new
+    @meanings = @towatop.meanings.joins(:lights).group("lights.meaning_id").order("sum(lights.score) desc").select("meanings.*, sum(lights.score) as sum_score")
+    @noscore_meanings = @towatop.meanings
+    @light = Light.new
     if user_signed_in?
       @user = current_user
       @meaning = Meaning.new

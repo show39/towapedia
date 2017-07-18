@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :towas, only: [:create, :show] do
     resources :meanings, only: [:create]
   end
+  resources :meanings, except: [:index, :create, :new, :edit, :show, :update, :destroy] do
+    resources :lights, only: [:create]
+  end
   root 'static_pages#home'
 end

@@ -13,20 +13,36 @@
   .col-md-9.towa__detail
     .towa__detail--header
       %h1 #{@towatop.towa}とは
-      %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
+      %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>ログイン中に電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
+
     .towa__detail--meanings
-      - @towatop.meanings.includes(:user).each do |meaning|
+      - @meanings.includes(:user).each do |meaning|
         .towa__detail--meanings-box
           %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
+
           #lights
-            = image_tag "light-off.jpg", size: "35x35", class: "light-group1", id: "1"
-            = image_tag "light-off.jpg", size: "35x35", class: "light-group2", id: "2"
-            = image_tag "light-off.jpg", size: "35x35", class: "light-group3", id: "3"
-            %input{name: "selected-light", type: "hidden"}
+            - if user_signed_in?
+              - if meaning.light_user(current_user.id)
+                - if current_user.lights.find_by(meaning_id: meaning.id, score: 1)
+                  = image_tag "lights1.jpg"
+                - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 2)
+                  = image_tag "lights2.jpg"
+                - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 3)
+                  = image_tag "lights3.jpg"
+              - else
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 1), method: :post do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group1"
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 2), method: :post do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group2"
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 3), method: :post do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group3"
+            - else
+              = image_tag "lights0.jpg"
+
           .meaning__box-footer
             .meaning__box-user
               .meaning__box-user-shumbnail
@@ -37,7 +53,38 @@
                 = meaning.user.title
             .lights-count__box
               = image_tag "light-on.jpg", class: "lights-count__box--label", size: "24x24"
-              %span.lights-count__box--count 88
+              %span.lights-count__box--count
+                = meaning.sum_score
+
+      - @noscore_meanings.includes(:user).each do |meaning|
+        - if meaning.lights.sum(:score) == 0
+          .towa__detail--meanings-box
+            %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
+            - if meaning.referer.present?
+              %span.towa__detail--referer-box
+                %span.towa__detail--referer-label 参照元
+                %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
+            #lights
+              - if user_signed_in?
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 1), method: :post, id: "light_button1" do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group1"
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 2), method: :post, id: "light_button2" do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group2"
+                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 3), method: :post, id: "light_button3" do
+                  = image_tag "light-off.jpg", size: "35x35", class: "light-group3"
+
+            .meaning__box-footer
+              .meaning__box-user
+                .meaning__box-user-shumbnail
+                  = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+                %p.meaning__box-user-name
+                  = meaning.user.name
+                %p.meaning__box-user-title
+                  = meaning.user.title
+              .lights-count__box
+                = image_tag "light-on.jpg", class: "lights-count__box--label", size: "24x24"
+                %span.lights-count__box--count 0
+
     - if current_user
       .towa__detail--form
         = form_for [@towatop, @meaning] do |f|
