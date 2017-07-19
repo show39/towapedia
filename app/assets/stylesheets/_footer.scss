@@ -1,0 +1,11 @@
+.footer {
+  border-top: 1px solid $light_gray;
+  border-bottom: 3px solid $acacia;
+  height: 40px;
+  margin-top: 30px;
+  .copyright {
+    color: $font_black;
+    line-height: 40px;
+    text-align: center;
+  }
+}
