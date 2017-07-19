@@ -23,6 +23,16 @@
       border: solid 1px $dark_gray;
       border-radius: 3px;
       margin-bottom: 6px;
+      h2 {
+        font-size: 18px;
+        color: $font-black;
+        margin-left: 12px;
+      }
+      @media screen and (max-width: 1600px) {
+        h2 {
+          display: none;
+        }
+      }
       .towa__detail--meaning {
         color: $font_black;
         margin: 12px 12px 0 12px;

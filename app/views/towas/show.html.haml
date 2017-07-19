@@ -16,8 +16,9 @@
       %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>ログイン中に電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
 
     .towa__detail--meanings
-      - @meanings.includes(:user).each do |meaning|
+      - @meanings.includes(:user, :towa).each do |meaning|
         .towa__detail--meanings-box
+          %h2= "#{meaning.user.name}さんの考える『#{meaning.towa.towa}』の意味"
           %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
