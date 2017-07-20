@@ -11,25 +11,25 @@
           = image_tag "noaccount.png", class: "account_image"
         %p.noaccount_name No Acount
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
-  .col-md-9
-    %ul
-      .row.o-3column
-        - @meanings.each do |meaning|
-          .col-md-4.col-sm-6
-            %li.meaning__box.clearfix
-              %h2
-                = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
-              .meaning__box-meaning-box
-                = simple_format(meaning.meaning, class: "meaning__box-meaning")
-              .meaning__box-footer
-                .meaning__box-user
-                  .meaning__box-user-shumbnail
-                    = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-                  %p.meaning__box-user-name
-                    = meaning.user.name
-                  %p.meaning__box-user-title
-                    = meaning.user.title
-                .lights-count__box
-                  = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
-                  %span.lights-count__box--count
-                    = meaning.lights.sum(:score)
+  .col-md-9.toppage
+    %h1.toppage__title 投稿型マイクロ百科事典 | とはペディア
+    %p.toppage__description 現在#{@towas.count}語の『とは』が掲載されています。<br>意味を知りたい語句を検索窓に打ち込むと、候補一覧が表示されます。
+    .row.o-3column
+      - @meanings.each do |meaning|
+        .col-md-4.col-sm-6
+          .meaning__box.clearfix
+            %h2= link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
+            .meaning__box-meaning-box
+              = simple_format(meaning.meaning, class: "meaning__box-meaning")
+            .meaning__box-footer
+              .meaning__box-user
+                .meaning__box-user-shumbnail
+                  = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+                %p.meaning__box-user-name
+                  = meaning.user.name
+                %p.meaning__box-user-title
+                  = meaning.user.title
+              .lights-count__box
+                = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
+                %span.lights-count__box--count
+                  = meaning.lights.sum(:score)

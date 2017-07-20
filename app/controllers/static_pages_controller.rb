@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
       @towa.meanings.build(user_id: current_user.id)
       @user = current_user
     end
+    @towas = Towa.all
     @meanings = Meaning.order("created_at DESC").includes(:towa, :user)
   end
 end

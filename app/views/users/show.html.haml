@@ -5,26 +5,26 @@
     = render 'shared/user_info'
     = render 'shared/towa_form'
   .col-md-9
-    .mypedia__username
-      %h1 #{@user.name}さんのマイペディア
-    %ul
-      .row.o-3column
-        - @meanings.each do |meaning|
-          .col-md-4.col-sm-6
-            %li.meaning__box.clearfix
-              %h2
-                = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
-              .meaning__box-meaning-box
-                = simple_format(meaning.meaning, class: "meaning__box-meaning")
-              .meaning__box-footer
-                .meaning__box-user
-                  .meaning__box-user-shumbnail
-                    = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-                  %p.meaning__box-user-name
-                    = meaning.user.name
-                  %p.meaning__box-user-title
-                    = meaning.user.title
-                .lights-count__box
-                  = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
-                  %span.lights-count__box--count
-                    = meaning.lights.sum(:score)
+    .mypedia
+      %h1.mypedia__title #{@user.name}さんのマイペディア
+      %p.mypedia__description 現在#{@user.meanings.count}件の意味が、#{@user.name}さんの辞書に掲載されています。<br>#{@user.name}さんの辞書の中で意味を知りたい語句を検索窓に打ち込むと、候補一覧が表示されます。
+    .row.o-3column
+      - @meanings.each do |meaning|
+        .col-md-4.col-sm-6
+          .meaning__box.clearfix
+            %h2
+              = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
+            .meaning__box-meaning-box
+              = simple_format(meaning.meaning, class: "meaning__box-meaning")
+            .meaning__box-footer
+              .meaning__box-user
+                .meaning__box-user-shumbnail
+                  = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+                %p.meaning__box-user-name
+                  = meaning.user.name
+                %p.meaning__box-user-title
+                  = meaning.user.title
+              .lights-count__box
+                = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
+                %span.lights-count__box--count
+                  = meaning.lights.sum(:score)
