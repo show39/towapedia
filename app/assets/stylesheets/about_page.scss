@@ -1,0 +1,21 @@
+.aboutpage {
+  color: $font_black;
+  p {
+    line-height: 22px;
+  }
+  h1 {
+    font-size: 22px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid $acacia;
+  }
+  h2 {
+    font-size: 22px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $acacia;
+  }
+  h3 {
+    font-size: 18px;
+    border-left: 3px solid $acacia;
+    padding: 5px 20px;
+  }
+}

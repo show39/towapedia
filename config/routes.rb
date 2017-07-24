@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :lights, only: [:create]
   end
   root 'static_pages#home'
+  get  '/about' => 'static_pages#about'
 end

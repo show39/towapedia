@@ -48,4 +48,38 @@
       background-color: $blue;
     }
   }
+  .scores.row {
+    margin: 0;
+    .telegram {
+      width: 47%;
+      display: inline-block;
+      text-align: center;
+      .fa {
+        color: $font_black;
+        font-size: 20px;
+        margin-right: 8px;
+      }
+      .telegram__score {
+        font-size: 16px;
+      }
+    }
+    .pipe {
+      display: inline-block;
+      text-align: center;
+    }
+    .light {
+      width: 47%;
+      display: inline-block;
+      text-align: center;
+      .light__icon {
+        margin-right: 8px;
+        img {
+        margin-bottom: 5px;
+        }
+      }
+      .light__score {
+        font-size: 16px;
+      }
+    }
+  }
 }

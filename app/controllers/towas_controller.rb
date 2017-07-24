@@ -21,6 +21,7 @@ class TowasController < ApplicationController
     if user_signed_in?
       @user = current_user
       @meaning = Meaning.new
+      @current_user_meanings = Meaning.where(user_id: current_user.id)
     end
   end
 

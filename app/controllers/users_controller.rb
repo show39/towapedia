@@ -4,5 +4,6 @@ class UsersController < ApplicationController
     @meanings = Meaning.where(user_id: current_user.id).order("created_at DESC").includes(:towa, :user)
     @towa = Towa.new
     @towa.meanings.build(user_id: current_user.id)
+    @current_user_meanings = Meaning.where(user_id: current_user.id)
   end
 end

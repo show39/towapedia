@@ -1,12 +1,19 @@
 .footer {
   border-top: 1px solid $light_gray;
   border-bottom: 3px solid $acacia;
-  height: 40px;
   margin-top: 30px;
+  ul {
+    margin: 10px 20px;
+    li {
+      a {
+        color: $font_black;
+        text-decoration: none;
+      }
+    }
+  }
   .copyright {
     color: $font_black;
-    line-height: 40px;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }

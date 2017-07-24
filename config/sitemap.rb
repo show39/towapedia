@@ -7,6 +7,7 @@ SitemapGenerator::Sitemap.create do
   # Defaults: :priority => 0.5, :changefreq => 'weekly',
   #           :lastmod => Time.now, :host => default_host
   add '/', :changefreq => 'monthly', :priority => 0.7
+  add '/about', :changefreq => 'monthly', :priority => 0.5
 
   # Add all articles:
   Towa.find_each do |towa|
