@@ -1,10 +1,13 @@
+
 class TowasController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def create
-    @meanings = Meaning.order("created_at DESC").includes(:towa, :user)
+    @meanings = Meaning.order("created_at DESC").includes(:towa, :user).page(params[:page])
     @towa = Towa.new(towa_params)
     @user = current_user
+    @current_user_meanings = Meaning.where(user_id: current_user.id)
+    @towas = Towa.all
     if @towa.save
       redirect_to root_path, notice: '『とは』がまたひとつ作成されました'
     else
