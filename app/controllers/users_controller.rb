@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    @meanings = Meaning.where(user_id: current_user.id).order("created_at DESC").includes(:towa, :user)
+    @meanings = Meaning.where(user_id: current_user.id).order("created_at DESC").includes(:towa, :user).page(params[:page])
     @towa = Towa.new
     @towa.meanings.build(user_id: current_user.id)
     @current_user_meanings = Meaning.where(user_id: current_user.id)

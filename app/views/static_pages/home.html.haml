@@ -35,3 +35,4 @@
                   = meaning.lights.sum(:score)
               .meaning__box-datatime
                 = meaning.created_at.to_s(:default)
+    .paginate= paginate @meanings

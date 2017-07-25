@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
       @current_user_meanings = Meaning.where(user_id: current_user.id)
     end
     @towas = Towa.all
-    @meanings = Meaning.order("created_at DESC").includes(:towa, :user)
+    @meanings = Meaning.order("created_at DESC").includes(:towa, :user).page(params[:page])
   end
 
   def about

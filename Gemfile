@@ -52,7 +52,7 @@ gem 'whenever', require: false
 # gem 'ransack'
 
 # ページネーション
-# gem 'kaminari'
+gem 'kaminari'
 
 # パンくず
 # gem 'gretel'
