@@ -75,6 +75,8 @@
                   = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
                 = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 3), method: :post, id: "light_button3" do
                   = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
+              - else
+                = image_tag "lights0.jpg"
 
             .meaning__box-footer
               .meaning__box-user
