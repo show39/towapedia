@@ -85,6 +85,13 @@
             color: $font_black;
           }
         }
+        .meaning__box-datatime {
+          clear: both;
+          color: $dark_gray;
+          font-size: 12px;
+          float: right;
+          margin: 3px 20px;
+        }
       }
     }
   }

@@ -56,6 +56,8 @@
               = image_tag "light-on.jpg", class: "lights-count__box--label", size: "24x24"
               %span.lights-count__box--count
                 = meaning.sum_score
+            .meaning__box-datatime
+              = meaning.created_at.to_s(:default)
 
       - @noscore_meanings.includes(:user).each do |meaning|
         - if meaning.lights.sum(:score) == 0
@@ -85,6 +87,8 @@
               .lights-count__box
                 = image_tag "light-on.jpg", class: "lights-count__box--label", size: "24x24"
                 %span.lights-count__box--count 0
+              .meaning__box-datatime
+                = meaning.created_at.to_s(:default)
 
     - if current_user
       .towa__detail--form

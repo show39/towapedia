@@ -28,3 +28,5 @@
                 = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
                 %span.lights-count__box--count
                   = meaning.lights.sum(:score)
+              .meaning__box-datatime
+                = meaning.created_at.to_s(:default)
