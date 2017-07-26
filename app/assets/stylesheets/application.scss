@@ -10,6 +10,7 @@
 @import "user_info";
 @import "meaning_box";
 @import "paginate";
+@import "breadcrumbs";
 @import "top_page";
 @import "about_page";
 @import "mypedia";
@@ -21,5 +22,5 @@
 @import "font-awesome";
 
 .container {
-  margin-top: 70px;
+  margin-top: 60px;
 }

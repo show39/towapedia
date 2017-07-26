@@ -1,7 +1,9 @@
 - provide(:title, "とはペディアについて | とはペディア")
 - provide(:description, "投稿型マイクロ百科事典『とはペディア』について")
+- breadcrumb :about
 .row
   .col-md-3.left-content
+    = breadcrumbs separator: '&rsaquo;'
     - if user_signed_in?
       = render 'shared/user_info'
       = render 'shared/towa_form'

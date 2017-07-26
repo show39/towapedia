@@ -1,7 +1,9 @@
 - provide(:title, "#{@towatop.towa}とは何か？ | とはペディア")
 - provide(:description, "『#{@towatop.towa}とは』の意味")
+- breadcrumb :towa, @towatop
 .row
   .col-md-3.left-content
+    = breadcrumbs separator: '&rsaquo;'
     - if user_signed_in?
       = render 'shared/user_info'
     - else

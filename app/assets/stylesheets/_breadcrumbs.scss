@@ -1,0 +1,17 @@
+@media screen and (max-width: 768px) {
+  .breadcrumbs {
+    display: none;
+  }
+}
+.breadcrumbs {
+  margin-bottom: 15px;
+  a {
+    color: $dark_gray;
+    margin-right: 5px;
+  }
+  .current {
+    color: $font_black;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}

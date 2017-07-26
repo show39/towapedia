@@ -1,7 +1,9 @@
 - provide(:title, "#{@user.name}さんのマイペディア | とはペディア")
 - provide(:description, "#{@user.name}さんが投稿した意味")
+- breadcrumb :user, @user
 .row
   .col-md-3.left-content
+    = breadcrumbs separator: '&rsaquo;'
     = render 'shared/user_info'
     = render 'shared/towa_form'
   .col-md-9

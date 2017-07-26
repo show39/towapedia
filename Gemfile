@@ -55,7 +55,7 @@ gem 'whenever', require: false
 gem 'kaminari'
 
 # パンくず
-# gem 'gretel'
+gem 'gretel'
 
 # フォーム
 # gem 'bootstrap_form'
