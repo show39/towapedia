@@ -1,16 +1,19 @@
 .user-info
+  - if user_signed_in? && @user.id == current_user.id
+    = link_to edit_user_registration_path, class: "user-config", method: :get do
+      %i.fa.fa-cog 設定
   .account_image-box
-    = image_tag "useraccount.png", class: "account_image"
+    = image_tag "useraccount.png", class: "account_image center-block"
   %p.user-name
-    = current_user.name
+    = @user.name
   %p.user-title
-    = current_user.title
+    = @user.title
   %p.user-profile
-    = current_user.profile
+    = @user.profile
   .scores.row
     .telegram
       %i.fa.fa-telegram
-      %span.telegram__score #{current_user.meanings.count}
+      %span.telegram__score #{@user.meanings.count}
     .pipe|
     .light
       %span.light__icon= image_tag "light-on.jpg", size: "25x25"

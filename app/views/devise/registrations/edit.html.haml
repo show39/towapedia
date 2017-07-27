@@ -1,18 +1,21 @@
-- provide(:title, "新規アカウント作成 | とはペディア")
+- provide(:title, "アカウント設定 | とはペディア")
 .signup__wrapper
-  %h3 新規アカウント作成
+  %h3 アカウント設定
   .signup__form
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
       .form-group
         .field
           = f.email_field :email, placeholder: "メールアドレス", class: "form-control"
       .form-group
         .field
-          = f.password_field :password, placeholder: "パスワード（6文字以上）", autocomplete: "off", class: "form-control"
+          = f.password_field :password, placeholder: "新しいパスワード（6文字以上）", autocomplete: "off", class: "form-control"
       .form-group
         .field
-          = f.password_field :password_confirmation, placeholder: "パスワード（確認）", autocomplete: "off", class: "form-control"
+          = f.password_field :password_confirmation, placeholder: "新しいパスワード（確認）", autocomplete: "off", class: "form-control"
+      .form-group
+        .field
+          = f.password_field :current_password, placeholder: "現在のパスワード", autocomplete: "off", class: "form-control"
       .form-group
         .field
           = f.text_field :name, placeholder: "ユーザー名（必須）", class: "form-control"
@@ -22,12 +25,9 @@
       .form-group
         .field
           = f.text_area :profile, placeholder: "プロフィール", class: "form-control signup__form--textarea"
-      .signup__tos
-        = link_to "利用規約", "#"
-        %span に同意のうえ、「新規アカウントの作成」ボタンを押してください。
       .form-group
         .text-right
           .actions
-            = f.submit "新規アカウントを作成", class: "btn btn-primary"
+            = f.submit "変更を保存する", class: "btn btn-primary"
           .signup__form--cancel
             = link_to "キャンセル", root_path
