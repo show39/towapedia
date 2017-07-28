@@ -52,7 +52,7 @@
               .meaning__box-user-shumbnail
                 = image_tag "userthumbnail.png", class: "meaning__box-user-image"
               %p.meaning__box-user-name
-                = meaning.user.name
+                = link_to meaning.user.name, user_path(meaning.user.id)
               %p.meaning__box-user-title
                 = meaning.user.title
             .lights-count__box
@@ -86,7 +86,7 @@
                 .meaning__box-user-shumbnail
                   = image_tag "userthumbnail.png", class: "meaning__box-user-image"
                 %p.meaning__box-user-name
-                  = meaning.user.name
+                  = link_to meaning.user.name, user_path(meaning.user.id)
                 %p.meaning__box-user-title
                   = meaning.user.title
               .lights-count__box
