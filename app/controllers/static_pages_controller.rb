@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
     else
       redirect_to root_path
     end
-    @users = User.all
+    @users = User.page(params[:page])
     @towas = Towa.all
     @meanings = Meaning.all
     @lights = Light.all

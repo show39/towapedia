@@ -29,3 +29,4 @@
           .dashboard__users--id #{user.id}
           .dashboard__users--name= link_to "#{user.name}", user_path(user)
           .dashboard__users--meaning #{user.meanings.count}件
+      .paginate= paginate @users
