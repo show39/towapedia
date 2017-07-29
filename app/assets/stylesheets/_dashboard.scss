@@ -1,0 +1,51 @@
+.dashboard {
+  color: $font_black;
+  .dashboard__title {
+    font-size: 20px;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  .dashboard__description {
+    display: inline-block;
+    margin-left: 16px;
+  }
+  p {
+    margin: 0;
+  }
+  .dashboard__data--head {
+    display: inline-block;
+    font-size: 16px;
+    width: 40%;
+    padding-top: 5px;
+  }
+  .dashboard__data--body {
+    display: inline-block;
+    font-size: 16px;
+    width: 55%;
+    padding-top: 5px;
+  }
+  .total_light {
+    margin-bottom: 20px;
+  }
+  .dashboard__users {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+  }
+  .dashboard__users--id {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    width: 30px;
+  }
+  .dashboard__users--name {
+    display: inline-block;
+    font-size: 16px;
+    width: 40%;
+    padding-left: 10px;
+  }
+  .dashboard__users--meaning {
+    display: inline-block;
+    font-size: 16px;
+    width: 40%;
+  }
+}

@@ -10,6 +10,9 @@
     .navbar-collapse.collapse#navbar-main
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          - if current_user.role == 1
+            %li
+              = link_to 'ダッシュボード',  dashboard_path, class: "nav-mypedia-btn"
           %li
             = link_to 'マイペディア', user_path(@user), class: "nav-mypedia-btn"
           %li
