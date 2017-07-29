@@ -8,10 +8,15 @@ SitemapGenerator::Sitemap.create do
   #           :lastmod => Time.now, :host => default_host
   add '/', :changefreq => 'monthly', :priority => 0.7
   add '/about', :changefreq => 'monthly', :priority => 0.5
+  add '/dashboard', :changefreq => 'daily', :priority => 0.5
 
   # Add all articles:
   Towa.find_each do |towa|
     add towa_path(towa), :lastmod => towa.updated_at, :priority => 0.75, :changefreq => 'daily'
+  end
+
+  User.find_each do |user|
+    add user_path(user), :lastmod => towa.updated_at, :priority => 0.5, :changefreq => 'daily'
   end
 end
 SitemapGenerator::Sitemap.ping_search_engines
