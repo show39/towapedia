@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   User.find_each do |user|
-    add user_path(user), :lastmod => towa.updated_at, :priority => 0.5, :changefreq => 'daily'
+    add user_path(user), :lastmod => user.updated_at, :priority => 0.5, :changefreq => 'daily'
   end
 end
 SitemapGenerator::Sitemap.ping_search_engines
