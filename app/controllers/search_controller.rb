@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    @search_towas = Towa.where('towa LIKE(?)',"%#{search_params[:keyword]}%").order("created_at DESC")
+    @search_towas = Towa.where('towa LIKE(?)',"%#{search_params[:keyword]}%").order("created_at DESC").limit(108)
   end
 
   private
