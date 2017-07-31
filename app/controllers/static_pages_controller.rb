@@ -20,7 +20,7 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
-    if user_signed_in? && current_user.role == 1
+    if user_signed_in? && current_user.role == 1 or 2
       @user = current_user
     else
       redirect_to root_path

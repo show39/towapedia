@@ -1,4 +1,3 @@
-
 class TowasController < ApplicationController
   before_action :authenticate_user!, only: :create
 
@@ -26,6 +25,12 @@ class TowasController < ApplicationController
       @meaning = Meaning.new
       @current_user_meanings = Meaning.where(user_id: current_user.id)
     end
+  end
+
+  def destroy
+    towa = Towa.find(params[:id])
+    towa.destroy
+    redirect_to root_path
   end
 
   private

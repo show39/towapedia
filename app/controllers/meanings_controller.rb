@@ -15,6 +15,12 @@ class MeaningsController < ApplicationController
     end
   end
 
+  def destroy
+    meaning = Meaning.find(params[:id])
+    meaning.destroy
+    redirect_to root_path
+  end
+
   private
     def  meaning_params
       params.require(:meaning).permit(:meaning, :referer).merge(towa_id: params[:towa_id], user_id: current_user.id)

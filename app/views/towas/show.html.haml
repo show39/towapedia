@@ -16,12 +16,16 @@
   .col-md-9.towa__detail
     .towa__detail--header
       %h1 #{@towatop.towa}とは
+      - if user_signed_in? && current_user.role == 1
+        = link_to 'とは削除', "/towas/#{@towatop.id}", method: :delete
       %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>ログイン中に電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
 
     .towa__detail--meanings
       - @meanings.includes(:user, :towa).each do |meaning|
         .towa__detail--meanings-box
           %h2= "#{meaning.user.name}さんの考える『#{meaning.towa.towa}』の意味"
+          - if user_signed_in? && current_user.role == 1
+            = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete
           %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
