@@ -20,11 +20,15 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
-    if user_signed_in? && current_user.role == 1 or 2
-      @user = current_user
+    if user_signed_in?
+      if current_user.role == 1 || current_user.role == 2
+        @user = current_user
+      else
+        redirect_to root_path
+      end
     else
       redirect_to root_path
-    end
+  end
     @users = User.page(params[:page])
     @towas = Towa.all
     @meanings = Meaning.all
