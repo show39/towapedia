@@ -12,6 +12,18 @@
       padding-bottom: 10px;
       border-bottom: 1px dotted $dark_gray;
     }
+    .towa_edit_button {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid $blue;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin: 5px 5px 0 0;
+    }
+    .towa_edit_button:hover {
+      color: #fff;
+      background-color: $blue;
+    }
     p {
       color: $font_black;
       font-size: 12px;
@@ -32,6 +44,18 @@
         h2 {
           display: none;
         }
+      }
+      .meaning_edit_button {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid $blue;
+        border-radius: 3px;
+        padding: 3px 5px;
+        margin: 10px 0 0 5px;
+      }
+      .meaning_edit_button:hover {
+        color: #fff;
+        background-color: $blue;
       }
       .towa__detail--meaning {
         color: $font_black;

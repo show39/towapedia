@@ -1,0 +1,10 @@
+- provide(:title, "#{@meaning.towa.towa}とはの意味編集 | とはペディア")
+- provide(:description, "#{@meaning.towa.towa}とはの意味編集")
+.row
+  .col-md-3.left-content
+  .col-md-9.towa__edit
+    %h1 『#{@meaning.towa.towa}とは』の意味編集
+    = form_for @meaning do |f|
+      = f.text_area :meaning, placeholder: '108文字制限（必須）', class: 'form-meaning-edit'
+      = f.text_field :referer, placeholder: '参照元URL  例）http://towapedia.com', class: "form-referer-edit"
+      = f.submit '変更を保存する', class: 'form-towa-submit'

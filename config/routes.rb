@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     get 'page/:page', :action => :show, :on => :collection
   end
 
-  resources :towas, only: [:create, :show, :destroy] do
-    resources :meanings, only: [:create, :destroy]
+  resources :towas, only: [:create, :show, :destroy, :edit, :update] do
+    resources :meanings, only: [:create, :destroy, :edit, :update]
   end
 
-  resources :meanings, except: [:index, :create, :new, :edit, :show, :update, :destroy] do
+  resources :meanings, except: [:index, :create, :new, :show, :destroy] do
     resources :lights, only: [:create]
   end
 

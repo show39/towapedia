@@ -17,7 +17,8 @@
     .towa__detail--header
       %h1 #{@towatop.towa}とは
       - if user_signed_in? && current_user.role == 1
-        = link_to 'とは削除', "/towas/#{@towatop.id}", method: :delete
+        = link_to 'とは削除', "/towas/#{@towatop.id}", method: :delete, data: { confirm: "『とは』を削除します。よろしいですか?" }, class: "towa_edit_button"
+        = link_to 'とは編集', "/towas/#{@towatop.id}/edit", method: :get, class: "towa_edit_button"
       %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>ログイン中に電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
 
     .towa__detail--meanings
@@ -25,7 +26,8 @@
         .towa__detail--meanings-box
           %h2= "#{meaning.user.name}さんの考える『#{meaning.towa.towa}』の意味"
           - if user_signed_in? && current_user.role == 1
-            = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete
+            = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
+            = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
           %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
@@ -66,9 +68,13 @@
             .meaning__box-datatime
               = meaning.created_at.to_s(:default)
 
-      - @noscore_meanings.includes(:user).each do |meaning|
+      - @noscore_meanings.includes(:user, :towa).each do |meaning|
         - if meaning.lights.sum(:score) == 0
           .towa__detail--meanings-box
+            %h2= "#{meaning.user.name}さんの考える『#{meaning.towa.towa}』の意味"
+            - if user_signed_in? && current_user.role == 1
+              = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
+              = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
             %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
             - if meaning.referer.present?
               %span.towa__detail--referer-box

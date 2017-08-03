@@ -1,0 +1,34 @@
+.towa__edit {
+  h1 {
+    color: $font-black;
+    font-size: 20px;
+  }
+  .form-towa-edit {
+    color: $font_black;
+    border: solid 1px $dark_gray;
+    border-radius: 3px;
+    width: 85%;
+    height: 36px;
+    padding: 0 12px;
+    margin: 10px 0;
+  }
+  .form-meaning-edit {
+    color: $font_black;
+    border: solid 1px $dark_gray;
+    border-radius: 3px;
+    width: 100%;
+    height: 72px;
+    padding: 6px 12px;
+    margin: 10px 0 7px 0;
+    resize: none;
+  }
+  .form-referer-edit {
+    color: $font_black;
+    border: solid 1px $dark_gray;
+    border-radius: 3px;
+    height: 36px;
+    padding: 0 12px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
