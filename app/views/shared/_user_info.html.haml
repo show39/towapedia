@@ -3,7 +3,7 @@
     = link_to edit_user_registration_path, class: "user-config", method: :get do
       %i.fa.fa-cog 設定
   .account_image-box
-    - if current_user.thumbnail?
+    - if @user.thumbnail?
       = image_tag @user.thumbnail.url, class: "account_image center-block"
     - else
       = image_tag "useraccount.png", class: "account_image center-block"
