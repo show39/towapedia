@@ -20,3 +20,4 @@
 /.public/sitemaps/sitemap.xml.gz
 
 config/secrets.yml
+public/uploads/
