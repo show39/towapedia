@@ -21,6 +21,10 @@
           = f.text_field :name, placeholder: "ユーザー名（必須）", class: "form-control"
       .form-group
         .field
+          = f.label "サムネイル画像"
+          = f.file_field :thumbnail
+      .form-group
+        .field
           = f.text_field :title, placeholder: "肩書き", class: "form-control"
       .form-group
         .field

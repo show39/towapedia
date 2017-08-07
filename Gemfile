@@ -26,7 +26,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'uglifier', '>= 1.3.0'
 
 # gem 'redis', '~> 3.0'
-# gem 'capistrano-rails', group: :development
 
 # ユーザー機能
 gem 'devise'
@@ -44,6 +43,12 @@ gem 'sitemap_generator'
 
 # crontab管理
 gem 'whenever', require: false
+
+# サムネイル
+gem 'carrierwave'
+gem 'piet'
+gem 'mini_magick'
+gem 'fog'
 
 # 役割定義
 # gem 'cancancan'

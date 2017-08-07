@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6}
   has_many :meanings
   has_many :lights
+  mount_uploader :thumbnail, ImageUploader
 end
