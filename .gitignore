@@ -19,4 +19,4 @@
 # Ignore sitemap file
 /.public/sitemaps/sitemap.xml.gz
 
-/.config/secrets.yml
+config/secrets.yml
