@@ -11,6 +11,7 @@
           = image_tag "noaccount.png", class: "account_image center-block"
         %p.noaccount_name No Acount
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
+        %p.please_login 『とは』を投稿するには、ログインが必要です。
   .col-md-9.toppage
     %h1.toppage__title 投稿型マイクロ百科事典 | とはペディア
     %p.toppage__description 現在#{@towas.count}語の『とは』が掲載されています。<br>意味を知りたい語句を検索窓に打ち込むと、候補一覧が表示されます。

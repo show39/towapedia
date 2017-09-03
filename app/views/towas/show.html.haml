@@ -12,7 +12,7 @@
           = image_tag "noaccount.png", class: "account_image center-block"
         %p.noaccount_name No Acount
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
-        %p.please_login 電球評価するには、ログインが必要です。
+        %p.please_login 『とは』を投稿するには、ログインが必要です。
   .col-md-9.towa__detail
     .towa__detail--header
       %h1 #{@towatop.towa}とは
@@ -28,30 +28,29 @@
           - if user_signed_in? && current_user.role == 1
             = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
             = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
-          %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
+          %blockquate
+            %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
               %span.towa__detail--referer-label 参照元
               %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
 
           #lights
-            - if user_signed_in?
-              - if meaning.light_user(current_user.id)
-                - if current_user.lights.find_by(meaning_id: meaning.id, score: 1)
-                  = image_tag "lights1.jpg"
-                - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 2)
-                  = image_tag "lights2.jpg"
-                - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 3)
-                  = image_tag "lights3.jpg"
-              - else
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 1), method: :post do
-                  = image_tag "light-off1.jpg", size: "35x35", class: "light-group1"
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 2), method: :post do
-                  = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 3), method: :post do
-                  = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
+            - if @cookies.present? && @cookies.include?(meaning.id.to_s)
+              = image_tag "lights3.jpg"
+              / - if current_user.lights.find_by(meaning_id: meaning.id, score: 1)
+              /   = image_tag "lights1.jpg"
+              / - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 2)
+              /   = image_tag "lights2.jpg"
+              / - elsif current_user.lights.find_by(meaning_id: meaning.id, score: 3)
+              /   = image_tag "lights3.jpg"
             - else
-              = image_tag "lights0.jpg"
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 1), method: :post do
+                = image_tag "light-off1.jpg", size: "35x35", class: "light-group1"
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 2), method: :post do
+                = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 3), method: :post do
+                = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
 
           .meaning__box-footer
             .meaning__box-user
@@ -80,22 +79,19 @@
             - if user_signed_in? && current_user.role == 1
               = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
               = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
-            %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
+            %blockquate
+              %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
             - if meaning.referer.present?
               %span.towa__detail--referer-box
                 %span.towa__detail--referer-label 参照元
                 %span.towa__detail--referer= auto_link(meaning.referer, html: {target: '_blank'})
             #lights
-              - if user_signed_in?
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 1), method: :post, id: "light_button1" do
-                  = image_tag "light-off1.jpg", size: "35x35", class: "light-group1"
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 2), method: :post, id: "light_button2" do
-                  = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
-                = button_to meaning_lights_path(user_id: current_user.id, meaning_id: meaning.id, score: 3), method: :post, id: "light_button3" do
-                  = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
-              - else
-                = image_tag "lights0.jpg"
-
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 1), method: :post do
+                = image_tag "light-off1.jpg", size: "35x35", class: "light-group1"
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 2), method: :post do
+                = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
+              = button_to meaning_lights_path(meaning_id: meaning.id, score: 3), method: :post do
+                = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
             .meaning__box-footer
               .meaning__box-user
                 .meaning__box-user-shumbnail

@@ -20,6 +20,7 @@ class TowasController < ApplicationController
     @meanings = @towatop.meanings.joins(:lights).group("lights.meaning_id").order("sum(lights.score) desc").select("meanings.*, sum(lights.score) as sum_score")
     @noscore_meanings = @towatop.meanings
     @light = Light.new
+    @cookies = cookies[:light_cookies]
     if user_signed_in?
       @user = current_user
       @meaning = Meaning.new
