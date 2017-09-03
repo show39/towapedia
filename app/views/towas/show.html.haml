@@ -28,7 +28,7 @@
           - if user_signed_in? && current_user.role == 1
             = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
             = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
-          %blockquate
+          %blockquote
             %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
           - if meaning.referer.present?
             %span.towa__detail--referer-box
@@ -79,7 +79,7 @@
             - if user_signed_in? && current_user.role == 1
               = link_to '意味削除', "/towas/#{@towatop.id}/meanings/#{meaning.id}", method: :delete, data: { confirm: "『意味』を削除します。よろしいですか?" }, class: "meaning_edit_button"
               = link_to '意味編集', "/towas/#{@towatop.id}/meanings/#{meaning.id}/edit", method: :get, class: "meaning_edit_button"
-            %blockquate
+            %blockquote
               %p= simple_format(meaning.meaning, class: "towa__detail--meaning")
             - if meaning.referer.present?
               %span.towa__detail--referer-box

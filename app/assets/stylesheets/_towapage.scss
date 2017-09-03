@@ -57,6 +57,11 @@
         color: #fff;
         background-color: $blue;
       }
+      blockquote {
+        padding: 0px;
+        margin: 0px;
+        border-left: none;
+      }
       .towa__detail--meaning {
         color: $font_black;
         margin: 10px 12px 0 12px;
