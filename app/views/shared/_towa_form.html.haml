@@ -1,9 +1,9 @@
 %h3.form-label 【とは投稿】
 = form_for @towa do |f|
-  = f.text_field :towa, placeholder: '20文字制限（必須）', class: "form-towa"
+  = f.text_field :towa, maxlength: "20", placeholder: '20文字制限（必須）', class: "form-towa"
   %em とは
   = f.fields_for :meanings do |m|
-    = m.text_area :meaning, placeholder: '108文字制限（必須）', class: 'form-meaning'
+    = m.text_area :meaning, maxlength: "108", placeholder: '108文字制限（必須）', class: 'form-meaning'
     = m.text_field :referer, placeholder: '参照元URL  例）http://towapedia.com', class: "form-referer"
     = m.hidden_field :user_id
   = f.submit '投稿', class: 'form-towa-submit'
