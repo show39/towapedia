@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  min-width: 1030px;
+  max-width: 1330px;
+  margin: 60px auto 0;
+  .left-content {
+    min-width: 295px;
+    padding: 0 5px 0 15px;
+  }
+  .main-comtent {
+    min-width: 415px;
+    padding: 0 5px;
+  }
+  .right-content {
+    min-width: 320px;
+    padding: 0 15px 0 5px;
+  }
+}
+
+.sponsored-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: block;
+    min-width: 100%;
+    .left-content {
+      min-width: 100%;
+      margin-bottom: 20px;
+      padding: 0 5px;
+    }
+    .main-comtent {
+      min-width: 100%;
+      margin-bottom: 20px;
+    }
+    .right-content {
+      min-width: 100%;
+      padding: 0 5px;
+    }
+  }
+}

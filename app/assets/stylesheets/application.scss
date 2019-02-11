@@ -3,6 +3,7 @@
 @import "./config/fonts";
 @import "./mixin/mixins";
 
+@import "common";
 @import "devise";
 @import "navbar";
 @import "footer";
@@ -22,7 +23,3 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-.container {
-  margin-top: 60px;
-}

@@ -1,4 +1,4 @@
-- provide(:title, "#{@towatop.towa}とは何か？ | とはペディア")
+- provide(:title, "#{@towatop.towa}とは何か？ | 108文字のとはペディア")
 - provide(:description, "『#{@towatop.towa}とは』の意味")
 - breadcrumb :towa, @towatop
 .row
@@ -70,7 +70,7 @@
             .meaning__box-datatime
               = meaning.created_at.to_s(:default)
 
-            %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | とはペディア"}}
+            %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | 108文字のとはペディア"}}
 
       - @noscore_meanings.includes(:user, :towa).each do |meaning|
         - if meaning.lights.sum(:score) == 0
@@ -108,7 +108,7 @@
                 %span.lights-count__box--count 0
               .meaning__box-datatime
                 = meaning.created_at.to_s(:default)
-              %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | とはペディア"}}
+              %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | 108文字のとはペディア"}}
 
     - if current_user
       .towa__detail--form
