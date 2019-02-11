@@ -1,19 +1,8 @@
 - provide(:title, "とはペディアについて | 108文字のとはペディア")
 - provide(:description, "投稿型マイクロ百科事典『とはペディア』について")
 - breadcrumb :about
-.row
-  .col-md-3.left-content
-    = breadcrumbs separator: '&rsaquo;'
-    - if user_signed_in?
-      = render 'shared/user_info'
-      = render 'shared/towa_form'
-    - else
-      .user-info
-        .account_image-box
-          = image_tag "noaccount.png", class: "account_image center-block"
-        %p.noaccount_name No Acount
-        = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
-  .col-md-9.aboutpage
+.wrapper
+  .aboutpage
     %h1 とはペディアについて
     %p とはペディアはウィキペディアのように誰でも書き込むことができる、投稿型マイクロ百科事典です。<br>投稿情報の真偽につきましては一切の責任を負いませんので、ご理解の上ご利用ください。
 
@@ -26,4 +15,3 @@
     %p しかし、言葉とは面白いもので、例えば『仕事』という語句1つでも『お金を稼ぐための労働』という意味と捉える人もいれば『人生の大半を占める生きがい』と考える人もいると思います。<br>とはペディアでは、誰でも自由に、そして簡潔に語句の意味を投稿できることで、1つの語句でも様々な境遇の人たちが考える多様な意味を発見することができます。
     %h3 語句を簡潔に理解し、使うことができる
     %p ある語句をウィキペディアで調べたときに、その語句がどういう意味を持っているのかよくわかると思います。<br>では、その語句を誰かに説明するとなると、自分では理解しているつもりでもなかなか言葉にはできないのではないでしょうか。<br>言葉を人に説明したり、自分の頭の中で物事を考えるときに使うには、その言葉を簡潔に理解している必要があります。<br>とはペディアでは意味の投稿に108文字制限を設けることで、その意味に無駄な言葉が排除されてより洗練された意味が集まります。<br>また、その意味は理解がしやすく、すぐに使うことができるでしょう。
-

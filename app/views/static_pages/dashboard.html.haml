@@ -1,32 +1,33 @@
-.dashboard
-  %h1.dashboard__title 管理者画面
-  %p.dashboard__description ダッシュボードでの各数値色々と表示
-  .row
-    .col-md-4
-      %p
-        .dashboard__data--head 総ユーザー数
-        .dashboard__data--body #{@users.count}名
-      %p
-        .dashboard__data--head 総とは数
-        .dashboard__data--body #{@towas.count}語句
-      %p
-        .dashboard__data--head 総意味数
-        .dashboard__data--body #{@meanings.count}件
-      %p
-        .dashboard__data--head 総電球評価件数
-        .dashboard__data--body #{@lights.count}件
-      %p
-        .dashboard__data--head.total_light 合計電球数
-        .dashboard__data--body.total_light #{@lights.sum(:score)}電球
+.wrapper
+  .dashboard
+    %h1.dashboard__title 管理者画面
+    %p.dashboard__description ダッシュボードでの各数値色々と表示
+    %table
+      %tr
+        %td.dashboard__data--head 総ユーザー数
+        %td.dashboard__data--body #{@users.count}名
+      %tr
+        %td.dashboard__data--head 総とは数
+        %td.dashboard__data--body #{@towas.count}語句
+      %tr
+        %td.dashboard__data--head 総意味数
+        %td.dashboard__data--body #{@meanings.count}件
+      %tr
+        %td.dashboard__data--head 総電球評価件数
+        %td.dashboard__data--body #{@lights.count}件
+      %tr
+        %td.dashboard__data--head 合計電球数
+        %td.dashboard__data--body #{@lights.sum(:score)}電球
 
-    .col-md-8
-      %h2.dashboard__users ユーザー一覧
-      .dashboard__users--id ID
-      .dashboard__users--name 名前
-      .dashboard__users--meaning 意味投稿
+    %h2.dashboard__users ユーザー一覧
+    %table
+      %tr
+        %th.dashboard__users--id ID
+        %th.dashboard__users--name 名前
+        %th.dashboard__users--meaning 意味投稿
       - @users.each do |user|
-        .user_data
-          .dashboard__users--id #{user.id}
-          .dashboard__users--name= link_to "#{user.name}", user_path(user)
-          .dashboard__users--meaning #{user.meanings.count}件
+        %tr.user_data
+          %td.dashboard__users--id #{user.id}
+          %td.dashboard__users--name= link_to "#{user.name}", user_path(user)
+          %td.dashboard__users--meaning #{user.meanings.count}件
       .paginate= paginate @users

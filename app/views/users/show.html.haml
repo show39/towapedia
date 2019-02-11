@@ -1,39 +1,38 @@
 - provide(:title, "#{@user.name}さんのマイペディア | 108文字のとはペディア")
 - provide(:description, "#{@user.name}さんが投稿した意味")
 - breadcrumb :user, @user
-.row
-  .col-md-3.left-content
+.wrapper
+  .left-content
     = breadcrumbs separator: '&rsaquo;'
     = render 'shared/user_info'
     - if user_signed_in? && @user.id == current_user.id
       = render 'shared/towa_form'
-  .col-md-9
+  .main-comtent
     .mypedia
       %h1.mypedia__title #{@user.name}さんのマイペディア
       %p.mypedia__description 現在#{@user.meanings.count}件の意味が、#{@user.name}さんの辞書に掲載されています。<br>#{@user.name}さんの辞書の中で意味を知りたい語句を検索窓に打ち込むと、候補一覧が表示されます。
-    .row.o-3column
       - @meanings.each do |meaning|
-        .col-md-4.col-sm-6
-          .meaning__box.clearfix
-            %h2
-              = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
-            .meaning__box-meaning-box
-              = simple_format(meaning.meaning, class: "meaning__box-meaning")
-            .meaning__box-footer
-              .meaning__box-user
-                .meaning__box-user-shumbnail
-                  - if meaning.user.thumbnail?
-                    = image_tag meaning.user.thumbnail.url(:icon), class: "meaning__box-user-image"
-                  - else
-                    = image_tag "userthumbnail.png", class: "meaning__box-user-image"
-                %p.meaning__box-user-name
-                  = meaning.user.name
-                %p.meaning__box-user-title
-                  = meaning.user.title
-              .lights-count__box
-                = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
-                %span.lights-count__box--count
-                  = meaning.lights.sum(:score)
-              .meaning__box-datatime
-                = meaning.created_at.to_s(:default)
+        .meaning__box.clearfix
+          %h2
+            = link_to "#{meaning.towa.towa + "とは"}", "/towas/#{meaning.towa.id}", class: "meaning__box-towa"
+          .meaning__box-meaning-box
+            = simple_format(meaning.meaning, class: "meaning__box-meaning")
+          .meaning__box-footer
+            .meaning__box-user
+              .meaning__box-user-shumbnail
+                - if meaning.user.thumbnail?
+                  = image_tag meaning.user.thumbnail.url(:icon), class: "meaning__box-user-image"
+                - else
+                  = image_tag "userthumbnail.png", class: "meaning__box-user-image"
+              %p.meaning__box-user-name
+                = meaning.user.name
+              %p.meaning__box-user-title
+                = meaning.user.title
+            .lights-count__box
+              = image_tag "light-on.jpg", class: "lights-count__box--label", size: "20x20"
+              %span.lights-count__box--count
+                = meaning.lights.sum(:score)
+            .meaning__box-datatime
+              = meaning.created_at.to_s(:default)
     .paginate= paginate @meanings
+  = render 'shared/right_content'

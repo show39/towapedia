@@ -1,8 +1,7 @@
 - provide(:title, "#{@towa.towa}とはの編集 | 108文字のとはペディア")
 - provide(:description, "『#{@towa.towa}とは』の編集")
-.row
-  .col-md-3.left-content
-  .col-md-9.towa__edit
+.wrapper
+  .towa__edit
     %h1 『#{@towatop.towa}とは』の編集
     = form_for @towa do |f|
       = f.text_field :towa, placeholder: '20文字制限（必須）', class: "form-towa-edit"

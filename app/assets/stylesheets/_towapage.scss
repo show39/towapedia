@@ -1,158 +1,157 @@
 // とは詳細ページ
-.towa__detail {
-  .towa__detail--header {
-    border-left: 4px solid $acacia;
-    padding: 10px 20px;
-    background-color: #f9f9f9;
-    margin-bottom: 15px;
-    h1 {
-      color: $font_black;
-      font-size: 20px;
-      margin: 5px 0;
-      padding-bottom: 10px;
-      border-bottom: 1px dotted $dark_gray;
+.towa__detail--header {
+  border-left: 4px solid $acacia;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  h1 {
+    color: $font_black;
+    font-size: 20px;
+    margin: 5px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted $dark_gray;
+  }
+  .towa_edit_button {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid $blue;
+    border-radius: 3px;
+    padding: 3px 5px;
+    margin: 5px 5px 0 0;
+  }
+  .towa_edit_button:hover {
+    color: #fff;
+    background-color: $blue;
+  }
+  p {
+    color: $font_black;
+    font-size: 12px;
+    margin: 10px 0 0 0;
+  }
+}
+.towa__detail--meanings {
+  .towa__detail--meanings-box {
+    border: solid 1px $dark_gray;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    h2 {
+      font-size: 18px;
+      color: $font-black;
+      margin-left: 12px;
     }
-    .towa_edit_button {
+    @media screen and (max-width: 1600px) {
+      h2 {
+        display: none;
+      }
+    }
+    .meaning_edit_button {
       display: inline-block;
       text-decoration: none;
       border: 1px solid $blue;
       border-radius: 3px;
       padding: 3px 5px;
-      margin: 5px 5px 0 0;
+      margin: 10px 0 0 5px;
     }
-    .towa_edit_button:hover {
+    .meaning_edit_button:hover {
       color: #fff;
       background-color: $blue;
     }
-    p {
+    blockquote {
+      padding: 0px;
+      margin: 0px;
+      border-left: none;
+    }
+    .towa__detail--meaning {
       color: $font_black;
-      font-size: 12px;
-      margin: 10px 0 0 0;
+      margin: 10px 12px 0 12px;
+      padding: 12px;
+      font-size: 16px;
+      position: relative;
     }
-  }
-  .towa__detail--meanings {
-    .towa__detail--meanings-box {
-      border: solid 1px $dark_gray;
-      border-radius: 3px;
-      margin-bottom: 6px;
-      h2 {
-        font-size: 18px;
-        color: $font-black;
-        margin-left: 12px;
-      }
-      @media screen and (max-width: 1600px) {
-        h2 {
-          display: none;
-        }
-      }
-      .meaning_edit_button {
-        display: inline-block;
-        text-decoration: none;
-        border: 1px solid $blue;
-        border-radius: 3px;
-        padding: 3px 5px;
-        margin: 10px 0 0 5px;
-      }
-      .meaning_edit_button:hover {
-        color: #fff;
-        background-color: $blue;
-      }
-      blockquote {
-        padding: 0px;
-        margin: 0px;
-        border-left: none;
-      }
-      .towa__detail--meaning {
+    .towa__detail--meaning:before {
+      position: absolute;
+      font-size: 50px;
+      color: $light_gray;
+      content: "“";
+      top: -20px;
+      left: -6px;
+    }
+    .towa__detail--meaning:after {
+      position: absolute;
+      font-size: 50px;
+      color: $light_gray;
+      content: "”";
+      bottom: -42px;
+      right: -6px;
+    }
+    .towa__detail--referer-box {
+      display: inline-block;
+      margin: 0 12px 3px 12px;
+      .towa__detail--referer-label {
         color: $font_black;
-        margin: 10px 12px 0 12px;
-        padding: 12px;
-        font-size: 16px;
-        position: relative;
+        margin-right: 5px;
+        font-size: 12px;
       }
-      .towa__detail--meaning:before {
-        position: absolute;
-        font-size: 50px;
-        color: $light_gray;
-        content: "“";
-        top: -20px;
-        left: -6px;
-      }
-      .towa__detail--meaning:after {
-        position: absolute;
-        font-size: 50px;
-        color: $light_gray;
-        content: "”";
-        bottom: -42px;
-        right: -6px;
-      }
-      .towa__detail--referer-box {
-        display: inline-block;
-        margin: 0 12px 3px 12px;
-        .towa__detail--referer-label {
-          color: $font_black;
-          margin-right: 5px;
-          font-size: 12px;
+      .towa__detail--referer {
+        a {
+          color: $blue;
+          text-decoration: none;
         }
-        .towa__detail--referer {
-          a {
-            color: $blue;
-            text-decoration: none;
-          }
-          a:hover {
-            color: $blue_hover;
-          }
-        }
-      }
-      #lights {
-        text-align: center;
-        form {
-          display: inline-block;
-          button {
-            background: none;
-            border: none;
-            padding: 0 2px;
-          }
-        }
-      }
-      .meaning__box-footer {
-        display: inline-block;
-        @includes clearfix();
-        width: 100%;
-        .lights-count__box {
-          border: 1px solid $dark_gray;
-          border-radius: 3px;
-          display: inline-box;
-          float: right;
-          margin-right: 20px;
-          padding: 3px 10px;
-          .lights-count__box--label {
-            margin-right: 10px;
-          }
-          .lights-count__box--count {
-            color: $font_black;
-          }
-        }
-        .meaning__box-datatime {
-          clear: both;
-          color: $dark_gray;
-          font-size: 12px;
-          float: right;
-          margin: 3px 20px;
-        }
-        .twitter-share-button {
-          display: inline-block;
-          float: right;
+        a:hover {
+          color: $blue_hover;
         }
       }
     }
-  }
-  .towa__detail--form {
-    padding: 15px 10px 1px 10px;
-    border: 1px solid $light_gray;
-    border-radius: 3px;
-    background-color: #f9f9f9;
+    #lights {
+      text-align: center;
+      form {
+        display: inline-block;
+        button {
+          background: none;
+          border: none;
+          padding: 0 2px;
+        }
+      }
+    }
+    .meaning__box-footer {
+      display: inline-block;
+      @includes clearfix();
+      width: 100%;
+      .lights-count__box {
+        border: 1px solid $dark_gray;
+        border-radius: 3px;
+        display: inline-box;
+        float: right;
+        margin-right: 20px;
+        padding: 3px 10px;
+        .lights-count__box--label {
+          margin-right: 10px;
+        }
+        .lights-count__box--count {
+          color: $font_black;
+        }
+      }
+      .meaning__box-datatime {
+        clear: both;
+        color: $dark_gray;
+        font-size: 12px;
+        float: right;
+        margin: 3px 20px;
+      }
+      .twitter-share-button {
+        display: inline-block;
+        float: right;
+      }
+    }
   }
 }
+.towa__detail--form {
+  padding: 15px 10px 1px 10px;
+  border: 1px solid $light_gray;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+
 .please_login {
   color: $font_black;
   text-align: center;

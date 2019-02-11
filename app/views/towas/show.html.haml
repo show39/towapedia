@@ -1,8 +1,8 @@
 - provide(:title, "#{@towatop.towa}とは何か？ | 108文字のとはペディア")
 - provide(:description, "『#{@towatop.towa}とは』の意味")
 - breadcrumb :towa, @towatop
-.row
-  .col-md-3.left-content
+.wrapper
+  .left-content
     = breadcrumbs separator: '&rsaquo;'
     - if user_signed_in?
       = render 'shared/user_info'
@@ -13,14 +13,13 @@
         %p.noaccount_name No Acount
         = link_to 'アカウントを作成する', new_user_registration_path, class: "new-registration_btn"
         %p.please_login 『とは』を投稿するには、ログインが必要です。
-  .col-md-9.towa__detail
+  .main-comtent
     .towa__detail--header
       %h1 #{@towatop.towa}とは
       - if user_signed_in? && current_user.role == 1
         = link_to 'とは削除', "/towas/#{@towatop.id}", method: :delete, data: { confirm: "『とは』を削除します。よろしいですか?" }, class: "towa_edit_button"
         = link_to 'とは編集', "/towas/#{@towatop.id}/edit", method: :get, class: "towa_edit_button"
       %p 『#{@towatop.towa}とは』の意味一覧を表示しています。<br>ログイン中に電球マークをクリックすることで、その意味がどれほど納得できたか評価できます。<br>また、『#{@towatop.towa}とは』についての意味を、下部より新規投稿ができます。
-
     .towa__detail--meanings
       - @meanings.includes(:user, :towa).each do |meaning|
         .towa__detail--meanings-box
@@ -51,7 +50,6 @@
                 = image_tag "light-off2.jpg", size: "35x35", class: "light-group2"
               = button_to meaning_lights_path(meaning_id: meaning.id, score: 3), method: :post do
                 = image_tag "light-off3.jpg", size: "35x35", class: "light-group3"
-
           .meaning__box-footer
             .meaning__box-user
               .meaning__box-user-shumbnail
@@ -69,9 +67,7 @@
                 = meaning.sum_score
             .meaning__box-datatime
               = meaning.created_at.to_s(:default)
-
             %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | 108文字のとはペディア"}}
-
       - @noscore_meanings.includes(:user, :towa).each do |meaning|
         - if meaning.lights.sum(:score) == 0
           .towa__detail--meanings-box
@@ -109,10 +105,10 @@
               .meaning__box-datatime
                 = meaning.created_at.to_s(:default)
               %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | 108文字のとはペディア"}}
-
     - if current_user
       .towa__detail--form
         = form_for [@towatop, @meaning] do |f|
           = f.text_area :meaning, maxlength: "108", placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
           = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'
+  = render 'shared/right_content'

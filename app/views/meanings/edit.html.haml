@@ -1,8 +1,7 @@
 - provide(:title, "#{@meaning.towa.towa}とはの意味編集 | 108文字のとはペディア")
 - provide(:description, "#{@meaning.towa.towa}とはの意味編集")
-.row
-  .col-md-3.left-content
-  .col-md-9.towa__edit
+.wrapper
+  .towa__edit
     %h1 『#{@meaning.towa.towa}とは』の意味編集
     = form_for @meaning do |f|
       = f.text_area :meaning, placeholder: '108文字制限（必須）', class: 'form-meaning-edit'
