@@ -111,4 +111,13 @@
           = f.text_area :meaning, maxlength: "108", placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
           = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'
+    .towa__adsense-relation
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      -# 関連コンテンツ 新商品
+      %ins{class: "adsbygoogle",
+        style: "display:block",
+        data:{ad:{format: "autorelaxed", client: "ca-pub-9627911157097400", slot: "1785552090"}}}
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
   = render 'shared/right_content'
