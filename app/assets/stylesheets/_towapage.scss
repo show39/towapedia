@@ -85,17 +85,21 @@
       right: -6px;
     }
     .towa__detail--referer-box {
+      width: calc(100% - 24px);
       display: inline-block;
       margin: 0 12px 3px 12px;
       .towa__detail--referer-label {
         color: $font_black;
-        margin-right: 5px;
         font-size: 12px;
+        margin-right: 5px;
       }
       .towa__detail--referer {
+        display: inline-block;
+        width: 100%;
         a {
           color: $blue;
           text-decoration: none;
+          word-wrap: break-word;
         }
         a:hover {
           color: $blue_hover;
