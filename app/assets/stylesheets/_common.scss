@@ -18,6 +18,8 @@
 }
 
 .sponsored-text {
+  font-size: 12px;
+  color: $font_black;
   text-align: center;
 }
 
@@ -35,6 +37,7 @@
       margin-bottom: 20px;
     }
     .right-content {
+      text-align: center;
       min-width: 100%;
       padding: 0 5px;
     }
