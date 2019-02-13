@@ -22,5 +22,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get  '/about' => 'static_pages#about'
+  get  '/terms' => 'static_pages#terms'
+  get  '/privacy' => 'static_pages#privacy'
   get  '/dashboard' => 'static_pages#dashboard'
 end

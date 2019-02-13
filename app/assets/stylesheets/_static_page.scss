@@ -1,4 +1,4 @@
-.aboutpage {
+.static_page {
   color: $font_black;
   width: 800px;
   margin: 0 auto;
@@ -26,7 +26,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .aboutpage {
+  .static_page {
     width: 100%;
     padding: 5px 15px;
   }

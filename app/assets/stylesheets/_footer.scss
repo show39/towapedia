@@ -2,9 +2,13 @@
   border-top: 1px solid $light_gray;
   border-bottom: 3px solid $acacia;
   margin-top: 30px;
+  padding: 10px 160px 0;
   ul {
     margin: 10px 20px;
+    display: flex;
+    justify-content: space-around;
     li {
+      display: inline-block;
       a {
         color: $font_black;
         text-decoration: none;
@@ -15,5 +19,18 @@
     color: $font_black;
     text-align: center;
     margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 0;
+    ul {
+      li {
+        a {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
