@@ -12,28 +12,20 @@ class StaticPagesController < ApplicationController
 
   def about
     if user_signed_in?
-      @towa = Towa.new
-      @towa.meanings.build(user_id: current_user.id)
       @user = current_user
-      @current_user_meanings = Meaning.where(user_id: current_user.id)
-    end
-  end
-
-  def about
-    if user_signed_in?
-      @towa = Towa.new
-      @towa.meanings.build(user_id: current_user.id)
-      @user = current_user
-      @current_user_meanings = Meaning.where(user_id: current_user.id)
     end
   end
 
   def terms
-
+    if user_signed_in?
+      @user = current_user
+    end
   end
 
   def privacy
-
+    if user_signed_in?
+      @user = current_user
+    end
   end
 
   def dashboard
