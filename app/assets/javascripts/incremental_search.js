@@ -12,7 +12,12 @@ $(document).on('turbolinks:load', function() {
   };
   $('#inc_search').on('keyup', function() {
     input = $.trim($(this).val());
-    if(preInput !== input){
+    if(!input) {
+      var ele = document.getElementById('towa_list');
+      ele.innerHTML = '';
+      return false;
+    }
+    if(preInput !== input) {
       clearTimeout(preFunc);
       preFunc = setTimeout(ajaxSearch, 300);
     }
