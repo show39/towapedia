@@ -3,7 +3,8 @@
 .wrapper
   .towa__edit
     %h1 『#{@meaning.towa.towa}とは』の意味編集
-    = form_for @meaning do |f|
-      = f.text_area :meaning, placeholder: '108文字制限（必須）', class: 'form-meaning-edit'
+    = form_for @meaning, builder: ApplicationFormBuilder do |f|
+      = f.countable_field(:meaning, 108)
+      = f.text_area :meaning, placeholder: '108文字制限（必須）', class: 'form-meaning-edit countable'
       = f.text_field :referer, placeholder: '参照元URL  例）http://towapedia.com', class: "form-referer-edit"
       = f.submit '変更を保存する', class: 'form-towa-submit'

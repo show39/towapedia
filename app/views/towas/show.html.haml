@@ -107,8 +107,9 @@
               %a{href: "https://twitter.com/share", class: "twitter-share-button", data:{text: "#{meaning.towa.towa}とは、#{meaning.meaning} | 108文字のとはペディア"}}
     - if current_user
       .towa__detail--form
-        = form_for [@towatop, @meaning] do |f|
-          = f.text_area :meaning, maxlength: "108", placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning'
+        = form_for [@towatop, @meaning], builder: ApplicationFormBuilder do |f|
+          = f.countable_field(:meaning, 108)
+          = f.text_area :meaning, maxlength: "108", placeholder: "『#{@towatop.towa}とは』の意味を投稿する（108文字制限・必須）", class: 'form-meaning countable'
           = f.text_field :referer, placeholder: "参照元URL  http://towapedia.com", class: "form-referer"
           = f.submit '投稿', class: 'form-towa-submit'
     .towa__adsense-relation

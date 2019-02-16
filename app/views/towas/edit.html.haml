@@ -3,7 +3,8 @@
 .wrapper
   .towa__edit
     %h1 『#{@towatop.towa}とは』の編集
-    = form_for @towa do |f|
-      = f.text_field :towa, placeholder: '20文字制限（必須）', class: "form-towa-edit"
+    = form_for @towa, builder: ApplicationFormBuilder do |f|
+      = f.countable_field(:towa, 20)
+      = f.text_field :towa, placeholder: '20文字制限（必須）', class: "form-towa-edit countable"
       %em とは
       = f.submit '変更を保存する', class: 'form-towa-submit'
