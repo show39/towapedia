@@ -9,18 +9,18 @@
     text-align: center;
   }
   .signup__form {
-  border: 1px solid $light_gray;
-  padding: 25px 20px;
-  border-radius: 5px;
-  #error_explanation {
-    h2 {
-      font-size: 16px;
-      font: $font_black;
+    border: 1px solid $light_gray;
+    padding: 25px 20px;
+    border-radius: 5px;
+    #error_explanation {
+      h2 {
+        font-size: 16px;
+        font: $font_black;
+      }
+      ul {
+        font: $font_black;
+      }
     }
-    ul {
-      font: $font_black;
-    }
-  }
   .form-group {
     @include clearfix;
     margin-bottom: 15px;
